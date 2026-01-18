@@ -41,16 +41,21 @@ struct Login: View {
                     .foregroundStyle(Color.green)
                     .cornerRadius(10)
                     .textContentType(.password)
-                
-                Button("Login") {
-                
+                HStack {
+                    Button("Registrieren") {
+                        
+                    }
+                    
+                    Button("Login") {
+                        
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 10)
+                    .background(Color.green.opacity(0.8))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 10)
-                .background(Color.green.opacity(0.8))
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .frame(maxWidth: .infinity, alignment: .trailing)
             }
             .offset(y: -80)
             
