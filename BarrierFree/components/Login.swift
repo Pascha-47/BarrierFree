@@ -5,11 +5,11 @@
 //  Created by TA616 on 17.01.26.
 //
 
-import SwiftUI
+import SwiftUI // Import aus einer Bibliothek
 
 struct Login: View {
     @State private var email = ""
-    @State private var password = ""
+    @State private var password = "" // @state ist dafür da den wert zu speichern
     
     var body: some View {
         VStack {
@@ -32,7 +32,7 @@ struct Login: View {
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
                 
-                // Passwort Eingabe (sichere Tastatur)
+                // Passwort Eingabe SecureField=passwort zensiert
                 SecureField("Password", text: $password)
                     .textFieldStyle(.plain)
                     .frame(maxWidth: .infinity)
@@ -43,8 +43,7 @@ struct Login: View {
                     .textContentType(.password)
                 
                 Button("Login") {
-                    // Login-Action
-                    print("Login mit \(email)")
+                
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 10)
