@@ -25,7 +25,7 @@ struct Login: View {
                         Text("Anmelden")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundStyle(Color.green)
+                            .foregroundStyle(.green)
                             .offset(y: -70)
                         
                         TextField("E-mail", text: $email)
@@ -33,29 +33,31 @@ struct Login: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.gray.opacity(0.5))
-                            .foregroundStyle(Color.green)
+                            .foregroundStyle(.green)
                             .cornerRadius(10)
+                            .textContentType(.emailAddress)
+                            .keyboardType(.emailAddress)
                         
                         SecureField("Password", text: $password)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.gray.opacity(0.5))
-                            .foregroundStyle(Color.green)
+                            .foregroundStyle(.green)
                             .cornerRadius(10)
+                            .textContentType(.password)
                         
                         HStack {
                             NavigationLink(destination: RegistrierView()) {
                                 Text("Registrieren")
                             }
                             
-                            
                             Button("Login") {
                                 showMap = true
                             }
                             .padding(.horizontal, 24)
                             .padding(.vertical, 10)
-                            .background(email.isEmpty || password.isEmpty ? Color.gray : Color.green.opacity(0.8))
+                            .background(email.isEmpty || password.isEmpty ? .gray : .green.opacity(0.8))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                             .frame(maxWidth: .infinity, alignment: .trailing)
@@ -63,27 +65,24 @@ struct Login: View {
                         }
                     }
                     .offset(y: -80)
+                    
                     Button("Überspringen") {
                         showMap = true
                     }
                     .foregroundStyle(.blue)
                     .font(.callout)
-                    .offset(y: 395)
+                    .padding()
+                    .background(Color.gray.opacity(0.5))
+                    .cornerRadius(10)
                     
-                    Spacer()
-                    Spacer()
                     Spacer()
                 }
                 .padding()
             }
-            .fullScreenCover(isPresented: $showMap) {
+            .fullScreenCover(isPresented: $showMap) {  // <- AUF ZStack-Ebene!
                 MapView()
             }
-            
-            
-            
         }
-        
     }
 }
 
